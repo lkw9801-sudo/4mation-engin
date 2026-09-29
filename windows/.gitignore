@@ -1,0 +1,6 @@
+book_data.h
+dist/
+*.o
+test_driver
+test_driver.exe
+4Mation-Windows.zip
