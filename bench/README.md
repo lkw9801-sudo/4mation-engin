@@ -32,4 +32,5 @@
 | `verify_book.py` | 전략 book 전수 검증 | `verify_book_*.log` |
 | `solve_line.py`, `first_moves.py`, `check_initial_distance.py` | 특정 수순, 첫 수별 값, 초기 국면 거리 증명 | `../solve_runs/*.json*`, `initial_distance.*` |
 
-`results/v1_pre_fix/`는 TT 버그 수정 전 엔진(v1)의 대국·복기 결과입니다(REPORT.md 0절 5번).
+- `results/v1_pre_fix/`: TT 수 덮어쓰기 버그 수정 전 엔진(v1)의 대국·복기 결과입니다(REPORT.md 0절 5번).
+- `results/pre_isolation_fix/`: 엔진 인스턴스 간섭 버그 수정 전, 새 엔진 두 개가 한 프로세스에서 TT를 공유한 상태의 실험 결과입니다(REPORT.md 0절 6번). 현재 `results/`의 같은 이름 파일이 수정 후 재실행 결과입니다.

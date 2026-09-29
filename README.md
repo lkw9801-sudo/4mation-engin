@@ -13,8 +13,16 @@ Piatnik 공식 규칙서를 따르는 4Mation 룰 엔진과, 가능한 국면은
 
 ## 요구 사항
 
-Python 3.9+, C 컴파일러(gcc/clang/cc). numpy는 평가함수 튜닝 스크립트(`bench/tune_eval.py`)에서만 씁니다.
+Python 3.10 이상, C 컴파일러(gcc/clang/cc). numpy는 평가함수 튜닝 스크립트(`bench/tune_eval.py`)에서만 씁니다.
 C 컴파일러가 없거나 `FOURMATION_NO_NATIVE=1`이면 native 코어 없이 `PyEngine`만 쓸 수 있습니다(약 90배 느림).
+
+- 확인한 환경: Linux(gcc, clang), Python 3.10, 3.11, 3.13.
+- 시험하지 않은 환경: Python 3.9, macOS, Windows(MinGW gcc 또는 MSVC `cl` 빌드 경로는 넣어 두었습니다).
+
+**엔진 여러 개와 스레드**
+- `Engine`마다 자기 TT(`tt_mb`, 기본 128MB)와 수 정렬 기록을 따로 가집니다. 한 프로그램에서 여러 개를 만들어도 서로 영향이 없습니다.
+- 메모리는 엔진 수만큼 듭니다.
+- native 호출은 프로세스 안에서 한 번에 하나씩(잠금) 실행되므로, 여러 스레드에서 써도 안전하지만 빨라지지는 않습니다. 병렬로 빠르게 하려면 프로세스를 나누세요(`fourmation.book prove --procs`처럼).
 
 ## 규칙과 가정
 

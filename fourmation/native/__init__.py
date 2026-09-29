@@ -128,6 +128,10 @@ if AVAILABLE:
     _lib.fm_think.argtypes = [u64, u64, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_double,
                               ctypes.c_int64, ctypes.c_double, ctypes.POINTER(Result)]
     _lib.fm_set_reply_order_min_depth.argtypes = [ctypes.c_int]
+    _lib.fm_ctx_new.argtypes = [ctypes.c_int]
+    _lib.fm_ctx_new.restype = ctypes.c_void_p
+    _lib.fm_ctx_select.argtypes = [ctypes.c_void_p]
+    _lib.fm_ctx_free.argtypes = [ctypes.c_void_p]
     _lib.fm_set_sym_max_n.argtypes = [ctypes.c_int]
     _lib.fm_init(0)
 

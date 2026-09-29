@@ -321,3 +321,74 @@ class GradeMove(unittest.TestCase):
         self.assertEqual(g["c2"]["plies_lost"], 10)
         self.assertEqual(g["d1"]["verdict"], "WIN_TO_DRAW")
         self.assertEqual(eng.grade_move(st, "a7", rows=rows)["verdict"], "ILLEGAL")
+
+
+@unittest.skipUnless(nv.AVAILABLE, "native core not built")
+class EngineIsolation(unittest.TestCase):
+    """Regression: the native TT used to be one global table, so a second Engine
+    wiped/resized the first one's TT and engines with different evaluations
+    reused each other's entries (changing scores and even moves)."""
+
+    @staticmethod
+    def _positions():
+        rng = random.Random(17)
+        return [random_position(rng, 6, 14) for _ in range(10)]
+
+    def test_engines_with_different_weights_do_not_mix(self):
+        from fourmation.engine import Engine
+        from fourmation.engine_defaults import LEGACY_WEIGHTS
+        pos = self._positions()
+        clean_a, clean_b = [], []
+        for st in pos:
+            i = Engine(tt_mb=32).think(st, depth=9)
+            clean_a.append((i.move, i.score, i.nodes))
+            i = Engine(tt_mb=32, weights=LEGACY_WEIGHTS).think(st, depth=9)
+            clean_b.append((i.move, i.score, i.nodes))
+        a = Engine(tt_mb=32)
+        b = Engine(tt_mb=1, weights=LEGACY_WEIGHTS)
+        for st, ca, cb in zip(pos, clean_a, clean_b):
+            a.clear()
+            b.clear()
+            b.think(st, depth=9)  # B fills its own table first
+            ia = a.think(st, depth=9)
+            self.assertEqual((ia.move, ia.score, ia.nodes), ca)  # identical to a lone engine
+            b.clear()
+            a.think(st, depth=9)  # and the other way round
+            ib = b.think(st, depth=9)
+            self.assertEqual((ib.move, ib.score), cb[:2])
+
+    def test_table_survives_other_engines(self):
+        from fourmation.engine import Engine
+        st = self._positions()[0]
+        a = Engine(tt_mb=32)
+        first = a.think(st, depth=10).nodes
+        warm = a.think(st, depth=10).nodes
+        self.assertLess(warm, first)
+        others = [Engine(tt_mb=4) for _ in range(5)]
+        for o in others:
+            o.think(st, depth=6)
+        del others
+        self.assertEqual(a.think(st, depth=10).nodes, warm)
+
+    def test_threads_give_sequential_results(self):
+        import threading
+        from fourmation.engine import Engine
+        pos = self._positions()
+        expect = []
+        for st in pos:
+            e = Engine(tt_mb=16)
+            expect.append(e.search(st, 100, -1, 1, time=20).score if st.ply >= 12 else e.think(st, depth=8).score)
+        got = {}
+
+        def worker(k):
+            e = Engine(tt_mb=16)
+            got[k] = [e.search(st, 100, -1, 1, time=20).score if st.ply >= 12 else e.think(st, depth=8).score
+                      for st in pos]
+
+        ts = [threading.Thread(target=worker, args=(k,)) for k in range(3)]
+        for t in ts:
+            t.start()
+        for t in ts:
+            t.join()
+        for k in range(3):
+            self.assertEqual(got[k], expect)

@@ -23,7 +23,9 @@ cube of that colour); such results depend on RuleConfig.no_move_fallback.
 from __future__ import annotations
 
 import ctypes
+import threading
 import time as _time
+from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 
@@ -95,6 +97,13 @@ class SearchInfo:
         return d
 
 
+# The native core is not re-entrant: one call at a time per process. Each Engine
+# owns a native context (TT + ordering heuristics) that is selected under this
+# lock before every call, so engines never share TT entries and can be used from
+# several threads (calls are serialised; use processes for parallel speed).
+_NATIVE_LOCK = threading.RLock()
+
+
 def _rules_to_native(st: State) -> None:
     lib = nv.lib()
     lib.fm_set_rules(1 if st.rules.no_move_fallback == "any_empty" else 0,
@@ -110,7 +119,14 @@ class Engine:
         if not nv.AVAILABLE:
             raise RuntimeError("native core unavailable (no C compiler?); use fourmation.pyengine")
         self.lib = nv.lib()
-        self.lib.fm_init(tt_mb)
+        self.lib.fm_init(0)  # tables only; the TT belongs to this engine's context
+        self._ctx = None
+        with _NATIVE_LOCK:
+            ctx = self.lib.fm_ctx_new(int(tt_mb))
+        if not ctx:
+            raise MemoryError(f"could not allocate a {tt_mb} MB transposition table")
+        self._ctx = ctx
+        self.tt_mb = tt_mb
         self.weights = list(weights) if weights is not None else list(DEFAULT_WEIGHTS)
         self.options = dict(DEFAULT_OPTIONS)
         if options:
@@ -127,7 +143,24 @@ class Engine:
                 book = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "x_strategy_book.json")
             book = Book(book)
         self.book = book
-        self._apply_config()
+        with self._native():
+            self._apply_config()
+
+    def __del__(self):
+        try:
+            if getattr(self, "_ctx", None):
+                with _NATIVE_LOCK:
+                    self.lib.fm_ctx_free(self._ctx)
+                self._ctx = None
+        except Exception:  # interpreter shutdown
+            pass
+
+    @contextmanager
+    def _native(self):
+        """Hold the native lock with this engine's context selected."""
+        with _NATIVE_LOCK:
+            self.lib.fm_ctx_select(self._ctx)
+            yield
 
     # -- configuration --------------------------------------------------
     def _apply_config(self, solver: bool = False) -> None:
@@ -142,7 +175,13 @@ class Engine:
                 self.lib.fm_set_option(nv.OPTIONS[k], int(v))
 
     def clear(self) -> None:
-        self.lib.fm_tt_clear()
+        """Empty this engine's transposition table."""
+        with self._native():
+            self.lib.fm_tt_clear()
+
+    def _new_generation(self) -> None:
+        with self._native():
+            self.lib.fm_new_generation()
 
     # -- low level ------------------------------------------------------
     def _enc(self, st: State, solver: bool = False):
@@ -155,8 +194,9 @@ class Engine:
         """One alpha-beta search. depth >= 100 searches to the end of the game
         (exact; uses solver_options)."""
         r = nv.Result()
-        self.lib.fm_search(*self._enc(st, depth >= 100), depth, alpha, beta, float(time), int(nodes),
-                           1 if keep else 0, ctypes.byref(r))
+        with self._native():
+            self.lib.fm_search(*self._enc(st, depth >= 100), depth, alpha, beta, float(time), int(nodes),
+                               1 if keep else 0, ctypes.byref(r))
         return r
 
     # -- play -----------------------------------------------------------
@@ -169,7 +209,8 @@ class Engine:
         r = nv.Result()
         md = depth if depth is not None else 100
         t = float(time) if time else 0.0
-        self.lib.fm_think(*self._enc(st), md, t, int(nodes or 0), soft if time else 0.0, ctypes.byref(r))
+        with self._native():
+            self.lib.fm_think(*self._enc(st), md, t, int(nodes or 0), soft if time else 0.0, ctypes.byref(r))
         return self._info(st, r)
 
     def _info(self, st: State, r: nv.Result) -> SearchInfo:
@@ -211,10 +252,11 @@ class Engine:
                 res = EXACT_WIN if e["result"] == "WIN" else EXACT_DRAW
                 return SearchInfo(e["best"], m, 1 if res == EXACT_WIN else 0, 0, res, None, [e["best"]],
                                   0, 0.0, 0.0, 0.0, 0, 0.0, source="book")
-        self.lib.fm_new_generation()
+        self._new_generation()
         r = self.search(st, 100, -1, 1, time=max(time * solve_share, 1e-3))
         solved_nodes = r.nodes
-        if not r.aborted and r.score > 0 and r.pv_len > 0 and self._keeps(st, nv.idx(r.pv[0]), 1):
+        deadline = t0 + time
+        if not r.aborted and r.score > 0 and r.pv_len > 0 and self._keeps(st, nv.idx(r.pv[0]), 1, deadline):
             info = self._info(st, r)
             info.result = EXACT_WIN
             info.depth = TOTAL_PLIES - st.ply
@@ -234,7 +276,7 @@ class Engine:
                 info.pv = [info.move]
             info.result = EXACT_DRAW if r.score == 0 else EXACT_LOSS
             return info
-        if not r.aborted and r.score == 0 and r.pv_len > 0 and self._keeps(st, nv.idx(r.pv[0]), 0):
+        if not r.aborted and r.score == 0 and r.pv_len > 0 and self._keeps(st, nv.idx(r.pv[0]), 0, deadline):
             info = self._info(st, r)
             info.result = EXACT_DRAW
             info.depth = TOTAL_PLIES - st.ply
@@ -246,13 +288,14 @@ class Engine:
             info.result = EXACT_LOSS  # proven lost; the move is the best resistance found
         return info
 
-    def _keeps(self, st: State, m: int, want: int) -> bool:
+    def _keeps(self, st: State, m: int, want: int, deadline: float) -> bool:
         """Defensive check that move m keeps the proven value `want` (1 win, 0 draw)
-        for the side to move: re-solve the child (usually instant from the TT)."""
+        for the side to move: re-solve the child (usually instant from the TT).
+        Bounded by the move's deadline; if it cannot finish, the search is trusted."""
         c = apply_move(st, m, validate=False)
         if c.is_terminal:
             return (1 if c.winner == st.to_move else 0 if c.winner == 0 else -1) == want
-        rr = self.search(c, 100, -1, 1, time=5.0)
+        rr = self.search(c, 100, -1, 1, time=max(min(5.0, deadline - _time.perf_counter()), 0.005))
         if rr.aborted:
             return True  # cannot check quickly; trust the search
         v = -((rr.score > 0) - (rr.score < 0))
@@ -264,7 +307,8 @@ class Engine:
     def _tactical_flag(self, st: State) -> int:
         """1: side to move wins at once; -1: every move allows an immediate win; 0 otherwise."""
         out = (ctypes.c_int * (nv.NFEAT + 1))()
-        self.lib.fm_features(*nv.encode(st.board, st.last, st.to_move), out)
+        with self._native():
+            self.lib.fm_features(*nv.encode(st.board, st.last, st.to_move), out)
         return out[nv.NFEAT]
 
     def _practical_choice(self, st: State, target: str, deadline: float, fallback: Optional[int],
@@ -348,7 +392,7 @@ class Engine:
         if st.is_terminal:
             raise ValueError("game is over")
         t0 = _time.perf_counter()
-        self.lib.fm_new_generation()
+        self._new_generation()
         deadline = t0 + time if time else None
         total_nodes = 0
         sens = False
@@ -437,7 +481,7 @@ class Engine:
         if st.is_terminal:
             raise ValueError("game is over")
         t0 = _time.perf_counter()
-        self.lib.fm_new_generation()
+        self._new_generation()
         deadline = t0 + time
         moves = legal_moves(st)
         rows: Dict[int, dict] = {}

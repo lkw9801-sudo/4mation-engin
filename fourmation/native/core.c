@@ -245,15 +245,20 @@ static int tt_gen = 0;
 #define F_UPPER 2
 #define F_EXACT 3
 
-static int tt_alloc(u64 mb) {
+static TTE *alloc_table(u64 mb, u64 *mask) {
     u64 bytes = mb * 1024ULL * 1024ULL;
     u64 nb = 1;
     while (nb * 2 * BUCKET * sizeof(TTE) <= bytes) nb *= 2;
+    TTE *t = (TTE *)calloc(nb * BUCKET, sizeof(TTE));
+    *mask = t ? nb - 1 : 0;
+    return t;
+}
+
+/* (re)allocate the table of the active context */
+static int tt_alloc(u64 mb) {
     free(tt);
-    tt = (TTE *)calloc(nb * BUCKET, sizeof(TTE));
-    if (!tt) { tt_mask = 0; return -1; }
-    tt_mask = nb - 1;
-    return 0;
+    tt = alloc_table(mb, &tt_mask);
+    return tt ? 0 : -1;
 }
 
 static inline TTE *tt_probe(u64 key) {
@@ -725,7 +730,9 @@ static void init_tables(void) {
     for (int c = 0; c < 2; c++) for (int s = 0; s < 64; s++) ZC[c][s] = splitmix(&seed);
     for (int s = 0; s < 65; s++) ZL[s] = splitmix(&seed);
     ZSIDE = splitmix(&seed);
-    if (!tt) tt_alloc(64);
+    if (!tt) tt_alloc(16);
+    for (int i = 0; i < MAXPLY; i++) killer[i][0] = killer[i][1] = NONE;
+    for (int a = 0; a < 2; a++) for (int i = 0; i < 65; i++) counter[a][i] = NONE;
     initialized = 1;
 }
 
@@ -752,6 +759,71 @@ static void reset_heuristics(void) {
     for (int i = 0; i < MAXPLY; i++) killer[i][0] = killer[i][1] = NONE;
     memset(hist, 0, sizeof(hist));
     for (int s = 0; s < 2; s++) for (int i = 0; i < 65; i++) counter[s][i] = NONE;
+}
+
+/* ------------------------------------------------------- engine contexts */
+/* Everything a search keeps between calls besides the position: the TT and the
+ * move-ordering heuristics. Each Python Engine owns one context and selects it
+ * before every call, so engines in one process never share TT entries (which
+ * would mix their evaluations) or history. Selecting only swaps a pointer and
+ * copies ~1.6 KB of heuristics. The globals belong to `active_ctx`, or to the
+ * built-in default context when it is NULL. */
+typedef struct {
+    TTE *tt;
+    u64 mask;
+    int gen;
+    int killer[MAXPLY][2];
+    int hist[2][64];
+    int counter[2][65];
+} Ctx;
+static Ctx default_ctx;
+static Ctx *active_ctx = NULL;
+
+static void ctx_save(Ctx *c) {
+    c->tt = tt; c->mask = tt_mask; c->gen = tt_gen;
+    memcpy(c->killer, killer, sizeof(killer));
+    memcpy(c->hist, hist, sizeof(hist));
+    memcpy(c->counter, counter, sizeof(counter));
+}
+
+static void ctx_load(const Ctx *c) {
+    tt = c->tt; tt_mask = c->mask; tt_gen = c->gen;
+    memcpy(killer, c->killer, sizeof(killer));
+    memcpy(hist, c->hist, sizeof(hist));
+    memcpy(counter, c->counter, sizeof(counter));
+}
+
+EXPORT void *fm_ctx_new(int tt_mb) {
+    init_tables();
+    Ctx *c = (Ctx *)calloc(1, sizeof(Ctx));
+    if (!c) return NULL;
+    c->tt = alloc_table((u64)(tt_mb > 0 ? tt_mb : 64), &c->mask);
+    if (!c->tt) { free(c); return NULL; }
+    for (int i = 0; i < MAXPLY; i++) c->killer[i][0] = c->killer[i][1] = NONE;
+    for (int a = 0; a < 2; a++) for (int i = 0; i < 65; i++) c->counter[a][i] = NONE;
+    return c;
+}
+
+EXPORT void fm_ctx_select(void *p) {
+    Ctx *c = (Ctx *)p;
+    if (c == active_ctx) return;
+    init_tables();
+    ctx_save(active_ctx ? active_ctx : &default_ctx);
+    ctx_load(c ? c : &default_ctx);
+    active_ctx = c;
+}
+
+EXPORT void fm_ctx_free(void *p) {
+    Ctx *c = (Ctx *)p;
+    if (!c) return;
+    if (c == active_ctx) {  /* its state lives in the globals: drop it, return to the default */
+        ctx_load(&default_ctx);
+        active_ctx = NULL;
+        free(c->tt);
+    } else {
+        free(c->tt);
+    }
+    free(c);
 }
 
 EXPORT int fm_init(int tt_mb) {
@@ -960,4 +1032,4 @@ EXPORT int fm_think(u64 b0, u64 b1, int last, int side, int max_depth, double tl
 
 EXPORT void fm_new_generation(void) { tt_gen = (tt_gen + 1) & 63; }
 
-EXPORT int fm_version(void) { return 2; }
+EXPORT int fm_version(void) { return 3; }

@@ -1,43 +1,43 @@
-[1/40] ply 19 value 0 ok  0s
-[2/40] ply 8 value 0 ok  70s
-[3/40] ply 11 value 1 ok  71s
-[4/40] ply 19 value -1 ok  71s
-[5/40] ply 9 value 0 ok  115s
-[6/40] ply 12 value -1 ok  115s
-[7/40] ply 19 value -1 ok  115s
-[8/40] ply 10 value 0 ok  127s
-[9/40] ply 14 value 1 ok  128s
-[10/40] ply 13 value -1 ok  128s
-[11/40] ply 12 value -1 ok  129s
-[12/40] ply 10 value 1 ok  129s
-[13/40] ply 17 value -1 ok  129s
-[14/40] ply 14 value 1 ok  129s
-[15/40] ply 16 value 1 ok  129s
-[16/40] ply 8 value -1 ok  131s
-[17/40] ply 15 value 1 ok  131s
-[18/40] ply 15 value -1 ok  131s
-[19/40] ply 16 value 1 ok  131s
-[20/40] ply 15 value 1 ok  131s
-[21/40] ply 12 value 1 ok  131s
-[22/40] ply 12 value -1 ok  131s
-[23/40] ply 9 value -1 ok  131s
-[24/40] ply 15 value -1 ok  131s
-[25/40] ply 10 value 1 ok  131s
-[26/40] ply 9 value 1 ok  132s
-[27/40] ply 18 value 1 ok  132s
-[28/40] ply 16 value -1 ok  132s
-[29/40] ply 19 value 1 ok  132s
-[30/40] ply 11 value -1 ok  132s
-[31/40] ply 12 value -1 ok  132s
-[32/40] ply 10 value 1 ok  132s
-[33/40] ply 8 value -1 ok  138s
-[34/40] ply 8 value 1 ok  156s
-[35/40] ply 20 value -1 ok  156s
-[36/40] ply 11 value -1 ok  157s
-[37/40] ply 14 value -1 ok  157s
-[38/40] ply 20 value -1 ok  157s
-[39/40] ply 9 value -1 ok  157s
-[40/40] ply 13 value -1 ok  157s
+[1/40] ply 19 value 0 ok  1s
+[2/40] ply 8 value 0 ok  94s
+[3/40] ply 11 value -1 ok  99s
+[4/40] ply 19 value -1 ok  99s
+[5/40] ply 9 value 0 ok  161s
+[6/40] ply 12 value -1 ok  162s
+[7/40] ply 19 value -1 ok  163s
+[8/40] ply 10 value 0 ok  195s
+[9/40] ply 14 value 1 ok  195s
+[10/40] ply 13 value -1 ok  196s
+[11/40] ply 12 value -1 ok  197s
+[12/40] ply 10 value 1 ok  198s
+[13/40] ply 17 value -1 ok  198s
+[14/40] ply 14 value 1 ok  199s
+[15/40] ply 16 value 1 ok  199s
+[16/40] ply 8 value -1 ok  202s
+[17/40] ply 15 value 1 ok  202s
+[18/40] ply 15 value -1 ok  202s
+[19/40] ply 16 value 1 ok  203s
+[20/40] ply 15 value 1 ok  203s
+[21/40] ply 12 value 1 ok  203s
+[22/40] ply 12 value -1 ok  204s
+[23/40] ply 9 value -1 ok  204s
+[24/40] ply 15 value -1 ok  205s
+[25/40] ply 10 value 1 ok  205s
+[26/40] ply 9 value 1 ok  206s
+[27/40] ply 18 value 1 ok  206s
+[28/40] ply 16 value -1 ok  206s
+[29/40] ply 19 value 1 ok  207s
+[30/40] ply 11 value -1 ok  207s
+[31/40] ply 12 value -1 ok  207s
+[32/40] ply 10 value 1 ok  212s
+[33/40] ply 8 value -1 ok  224s
+[34/40] ply 8 value 1 ok  241s
+[35/40] ply 20 value -1 ok  241s
+[36/40] ply 11 value -1 ok  244s
+[37/40] ply 14 value -1 ok  244s
+[38/40] ply 20 value -1 ok  244s
+[39/40] ply 9 value -1 ok  244s
+[40/40] ply 13 value -1 ok  245s
 {
  "bellman": [
   40,
@@ -66,5 +66,5 @@
   13
  ],
  "errors": [],
- "seconds": 158.6411051750183
+ "seconds": 247.55490803718567
 }
