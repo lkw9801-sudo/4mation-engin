@@ -1,0 +1,1176 @@
+[
+{
+"position": "....OX.....X.....OOX....XO.......X............... O f5",
+"ply": 9,
+"category": "win",
+"correct": [
+"e6",
+"f4"
+],
+"values": {
+"f4": "EXACT_WIN",
+"g4": "EXACT_LOSS",
+"e5": "EXACT_LOSS",
+"g5": "EXACT_LOSS",
+"e6": "EXACT_WIN",
+"f6": "EXACT_DRAW",
+"g6": "EXACT_LOSS"
+},
+"distances": {
+"f4": 31,
+"g4": 4,
+"e5": 8,
+"g5": 8,
+"e6": 33,
+"f6": null,
+"g6": 22
+}
+},
+{
+"position": ".....O....OX.X...X.....O......................... X c4",
+"ply": 6,
+"category": "win",
+"correct": [
+"c3",
+"d4",
+"d5"
+],
+"values": {
+"b3": "EXACT_LOSS",
+"c3": "EXACT_WIN",
+"b4": "EXACT_LOSS",
+"d4": "EXACT_WIN",
+"b5": "EXACT_LOSS",
+"c5": "EXACT_LOSS",
+"d5": "EXACT_WIN"
+},
+"distances": {
+"b3": 34,
+"c3": 35,
+"b4": 38,
+"d4": 41,
+"b5": 32,
+"c5": 32,
+"d5": 31
+}
+},
+{
+"position": "................................OOX.....XX.....O. X e5",
+"ply": 6,
+"category": "hold_draw",
+"correct": [
+"d4",
+"d5"
+],
+"values": {
+"d4": "EXACT_DRAW",
+"e4": "EXACT_LOSS",
+"f4": "EXACT_LOSS",
+"d5": "EXACT_DRAW",
+"d6": "EXACT_LOSS",
+"e6": "EXACT_LOSS"
+},
+"distances": {
+"d4": null,
+"e4": 30,
+"f4": 28,
+"d5": null,
+"d6": 28,
+"e6": 28
+}
+},
+{
+"position": "........................X......OOOX.....XX.....O. X d5",
+"ply": 8,
+"category": "hold_draw",
+"correct": [
+"e6"
+],
+"values": {
+"c4": "EXACT_LOSS",
+"e4": "EXACT_LOSS",
+"c5": "EXACT_LOSS",
+"c6": "EXACT_LOSS",
+"d6": "EXACT_LOSS",
+"e6": "EXACT_DRAW"
+},
+"distances": {
+"c4": 2,
+"e4": 24,
+"c5": 32,
+"c6": 2,
+"d6": 2,
+"e6": null
+}
+},
+{
+"position": "....XO......X.....OX.....O......X................ O e5",
+"ply": 7,
+"category": "win",
+"correct": [
+"d4",
+"f4"
+],
+"values": {
+"d4": "EXACT_WIN",
+"f4": "EXACT_WIN",
+"d5": "EXACT_LOSS",
+"f5": "EXACT_DRAW",
+"d6": "EXACT_DRAW",
+"e6": "EXACT_LOSS",
+"f6": "EXACT_DRAW"
+},
+"distances": {
+"d4": 29,
+"f4": 35,
+"d5": 32,
+"f5": null,
+"d6": null,
+"e6": 34,
+"f6": null
+}
+},
+{
+"position": ".......................XOO...O..X..XX......O..... X e4",
+"ply": 8,
+"category": "win",
+"correct": [
+"d3",
+"d5",
+"f4"
+],
+"values": {
+"d3": "EXACT_WIN",
+"e3": "EXACT_LOSS",
+"f3": "EXACT_LOSS",
+"f4": "EXACT_WIN",
+"d5": "EXACT_WIN",
+"f5": "EXACT_LOSS"
+},
+"distances": {
+"d3": 31,
+"e3": 30,
+"f3": 36,
+"f4": 33,
+"d5": 29,
+"f5": 24
+}
+},
+{
+"position": ".....X....O.O...OXOX....X........................ X d2",
+"ply": 8,
+"category": "win",
+"correct": [
+"c1",
+"c2"
+],
+"values": {
+"c1": "EXACT_WIN",
+"d1": "EXACT_LOSS",
+"e1": "EXACT_LOSS",
+"c2": "EXACT_WIN",
+"e2": "EXACT_LOSS"
+},
+"distances": {
+"c1": 31,
+"d1": 4,
+"e1": 4,
+"c2": 27,
+"e2": 10
+}
+},
+{
+"position": "....OX.....OX.....X.O...OXOX..................... X e2",
+"ply": 10,
+"category": "win",
+"correct": [
+"d3"
+],
+"values": {
+"d1": "EXACT_DRAW",
+"d2": "EXACT_LOSS",
+"d3": "EXACT_WIN",
+"f3": "EXACT_LOSS"
+},
+"distances": {
+"d1": null,
+"d2": 30,
+"d3": 27,
+"f3": 24
+}
+},
+{
+"position": "........XO......O.......X.....XOX.....O.......... X c2",
+"ply": 8,
+"category": "win",
+"correct": [
+"b3"
+],
+"values": {
+"b1": "EXACT_LOSS",
+"c1": "EXACT_LOSS",
+"d1": "EXACT_DRAW",
+"d2": "EXACT_DRAW",
+"b3": "EXACT_WIN",
+"d3": "EXACT_LOSS"
+},
+"distances": {
+"b1": 34,
+"c1": 36,
+"d1": null,
+"d2": null,
+"b3": 27,
+"d3": 30
+}
+},
+{
+"position": "........................OX....XOO......X......... X d4",
+"ply": 6,
+"category": "win",
+"correct": [
+"c3"
+],
+"values": {
+"c3": "EXACT_WIN",
+"d3": "EXACT_LOSS",
+"e3": "EXACT_LOSS",
+"c4": "EXACT_LOSS"
+},
+"distances": {
+"c3": 35,
+"d3": 26,
+"e3": 18,
+"c4": 16
+}
+},
+{
+"position": ".................X......OX....XOO......X......... O d3",
+"ply": 7,
+"category": "win",
+"correct": [
+"c3",
+"e3"
+],
+"values": {
+"c2": "EXACT_LOSS",
+"d2": "EXACT_LOSS",
+"e2": "EXACT_LOSS",
+"c3": "EXACT_WIN",
+"e3": "EXACT_WIN",
+"c4": "EXACT_LOSS"
+},
+"distances": {
+"c2": 22,
+"d2": 18,
+"e2": 34,
+"c3": 25,
+"e3": 39,
+"c4": 30
+}
+},
+{
+"position": ".................X.....OOX....XOO......X......... X c4",
+"ply": 8,
+"category": "win",
+"correct": [
+"b3"
+],
+"values": {
+"b3": "EXACT_WIN",
+"c3": "EXACT_LOSS",
+"b4": "EXACT_LOSS",
+"b5": "EXACT_LOSS"
+},
+"distances": {
+"b3": 29,
+"c3": 34,
+"b4": 12,
+"b5": 12
+}
+},
+{
+"position": "OXX......OO......X............................... X a1",
+"ply": 6,
+"category": "win",
+"correct": [
+"b2"
+],
+"values": {
+"a2": "EXACT_LOSS",
+"b2": "EXACT_WIN"
+},
+"distances": {
+"a2": 30,
+"b2": 35
+}
+},
+{
+"position": "....X....XO.....OX.....O.....X................... O e1",
+"ply": 7,
+"category": "hold_draw",
+"correct": [
+"d1",
+"f2"
+],
+"values": {
+"d1": "EXACT_DRAW",
+"f1": "EXACT_LOSS",
+"e2": "EXACT_LOSS",
+"f2": "EXACT_DRAW"
+},
+"distances": {
+"d1": null,
+"f1": 40,
+"e2": 26,
+"f2": null
+}
+},
+{
+"position": "....XO...XO.....OX.....O.....X................... X f1",
+"ply": 8,
+"category": "win",
+"correct": [
+"f2"
+],
+"values": {
+"g1": "EXACT_LOSS",
+"e2": "EXACT_DRAW",
+"f2": "EXACT_WIN",
+"g2": "EXACT_DRAW"
+},
+"distances": {
+"g1": 38,
+"e2": null,
+"f2": 39,
+"g2": null
+}
+},
+{
+"position": "........................XO......OXX....X.O....... O e6",
+"ply": 7,
+"category": "hold_draw",
+"correct": [
+"d5"
+],
+"values": {
+"d5": "EXACT_DRAW",
+"d6": "EXACT_LOSS",
+"f6": "EXACT_LOSS",
+"d7": "EXACT_LOSS",
+"e7": "EXACT_LOSS",
+"f7": "EXACT_LOSS"
+},
+"distances": {
+"d5": null,
+"d6": 26,
+"f6": 26,
+"d7": 26,
+"e7": 26,
+"f7": 18
+}
+},
+{
+"position": "........................XO.....OOXX....X.O....... X d5",
+"ply": 8,
+"category": "hold_draw",
+"correct": [
+"c6"
+],
+"values": {
+"c4": "EXACT_LOSS",
+"c5": "EXACT_LOSS",
+"c6": "EXACT_DRAW",
+"d6": "EXACT_LOSS"
+},
+"distances": {
+"c4": 26,
+"c5": 24,
+"c6": null,
+"d6": 16
+}
+},
+{
+"position": "........................XO.....OOXX..X.X.O....... O c6",
+"ply": 9,
+"category": "hold_draw",
+"correct": [
+"b5",
+"d6"
+],
+"values": {
+"b5": "EXACT_DRAW",
+"c5": "EXACT_LOSS",
+"b6": "EXACT_LOSS",
+"d6": "EXACT_DRAW",
+"b7": "EXACT_LOSS",
+"c7": "EXACT_LOSS",
+"d7": "EXACT_LOSS"
+},
+"distances": {
+"b5": null,
+"c5": 8,
+"b6": 36,
+"d6": null,
+"b7": 22,
+"c7": 8,
+"d7": 4
+}
+},
+{
+"position": "........................XO.....OOXX..XOX.O....... X d6",
+"ply": 10,
+"category": "hold_draw",
+"correct": [
+"c5"
+],
+"values": {
+"c5": "EXACT_DRAW",
+"c7": "EXACT_LOSS",
+"d7": "EXACT_LOSS",
+"e7": "EXACT_LOSS"
+},
+"distances": {
+"c5": null,
+"c7": 32,
+"d7": 8,
+"e7": 34
+}
+},
+{
+"position": ".................X.....O.OX.....XO.....O......X.. X c4",
+"ply": 8,
+"category": "win",
+"correct": [
+"d4"
+],
+"values": {
+"b3": "EXACT_LOSS",
+"c3": "EXACT_LOSS",
+"b4": "EXACT_LOSS",
+"d4": "EXACT_WIN",
+"b5": "EXACT_LOSS",
+"c5": "EXACT_LOSS",
+"d5": "EXACT_LOSS"
+},
+"distances": {
+"b3": 12,
+"c3": 26,
+"b4": 22,
+"d4": 21,
+"b5": 20,
+"c5": 28,
+"d5": 26
+}
+},
+{
+"position": ".................X.....OXOX....OXO.....O......X.. X d5",
+"ply": 10,
+"category": "win",
+"correct": [
+"d6"
+],
+"values": {
+"c5": "EXACT_LOSS",
+"c6": "EXACT_LOSS",
+"d6": "EXACT_WIN"
+},
+"distances": {
+"c5": 12,
+"c6": 26,
+"d6": 19
+}
+},
+{
+"position": "..................O....OX.XO......X.............. X c4",
+"ply": 6,
+"category": "win",
+"correct": [
+"c3",
+"d3",
+"d5"
+],
+"values": {
+"b3": "EXACT_LOSS",
+"c3": "EXACT_WIN",
+"d3": "EXACT_WIN",
+"b4": "EXACT_LOSS",
+"b5": "EXACT_DRAW",
+"c5": "EXACT_DRAW",
+"d5": "EXACT_WIN"
+},
+"distances": {
+"b3": 28,
+"c3": 35,
+"d3": 23,
+"b4": 26,
+"b5": null,
+"c5": null,
+"d5": 33
+}
+},
+{
+"position": "..........O......XO....OX.XO......X.............. X d2",
+"ply": 8,
+"category": "win",
+"correct": [
+"c2",
+"c3"
+],
+"values": {
+"c1": "EXACT_LOSS",
+"d1": "EXACT_DRAW",
+"e1": "EXACT_DRAW",
+"c2": "EXACT_WIN",
+"e2": "EXACT_DRAW",
+"c3": "EXACT_WIN"
+},
+"distances": {
+"c1": 32,
+"d1": null,
+"e1": null,
+"c2": 31,
+"e2": null,
+"c3": 21
+}
+},
+{
+"position": ".O.....XOXO.....XXO....OX........................ X d2",
+"ply": 10,
+"category": "win",
+"correct": [
+"c1",
+"d1"
+],
+"values": {
+"c1": "EXACT_WIN",
+"d1": "EXACT_WIN",
+"e1": "EXACT_LOSS",
+"e2": "EXACT_LOSS"
+},
+"distances": {
+"c1": 31,
+"d1": 35,
+"e1": 34,
+"e2": 38
+}
+},
+{
+"position": "..O.....XXO.......X.....O........................ X d4",
+"ply": 6,
+"category": "win",
+"correct": [
+"d3"
+],
+"values": {
+"c3": "EXACT_LOSS",
+"d3": "EXACT_WIN",
+"c4": "EXACT_LOSS",
+"e4": "EXACT_LOSS",
+"c5": "EXACT_LOSS",
+"d5": "EXACT_DRAW",
+"e5": "EXACT_LOSS"
+},
+"distances": {
+"c3": 4,
+"d3": 29,
+"c4": 20,
+"e4": 18,
+"c5": 18,
+"d5": null,
+"e5": 20
+}
+},
+{
+"position": ".......................OXX....XOO................ X d5",
+"ply": 6,
+"category": "win",
+"correct": [
+"d6"
+],
+"values": {
+"c6": "EXACT_LOSS",
+"d6": "EXACT_WIN",
+"e6": "EXACT_DRAW"
+},
+"distances": {
+"c6": 38,
+"d6": 39,
+"e6": null
+}
+},
+{
+"position": ".......................OXX....XOO.....XO......... X e6",
+"ply": 8,
+"category": "win",
+"correct": [
+"f5"
+],
+"values": {
+"f5": "EXACT_WIN",
+"f6": "EXACT_LOSS",
+"d7": "EXACT_DRAW",
+"e7": "EXACT_LOSS",
+"f7": "EXACT_LOSS"
+},
+"distances": {
+"f5": 37,
+"f6": 2,
+"d7": null,
+"e7": 2,
+"f7": 24
+}
+},
+{
+"position": "..................XOX...O.XO....X.....O.......... X d6",
+"ply": 8,
+"category": "win",
+"correct": [
+"e6"
+],
+"values": {
+"c5": "EXACT_LOSS",
+"d5": "EXACT_DRAW",
+"c6": "EXACT_LOSS",
+"e6": "EXACT_WIN",
+"c7": "EXACT_LOSS",
+"d7": "EXACT_LOSS",
+"e7": "EXACT_LOSS"
+},
+"distances": {
+"c5": 4,
+"d5": null,
+"c6": 12,
+"e6": 11,
+"c7": 10,
+"d7": 24,
+"e7": 14
+}
+},
+{
+"position": "..................XOX...O.XO....X.....OX.....O... X d7",
+"ply": 10,
+"category": "win",
+"correct": [
+"e7"
+],
+"values": {
+"c6": "EXACT_LOSS",
+"c7": "EXACT_LOSS",
+"e7": "EXACT_WIN"
+},
+"distances": {
+"c6": 2,
+"c7": 18,
+"e7": 9
+}
+},
+{
+"position": "O.......X.......O.......X.....OXX......O......... X a1",
+"ply": 8,
+"category": "win",
+"correct": [
+"b1"
+],
+"values": {
+"b1": "EXACT_WIN",
+"a2": "EXACT_LOSS"
+},
+"distances": {
+"b1": 25,
+"a2": 18
+}
+},
+{
+"position": "...XOX...OXOOX................................... X c2",
+"ply": 8,
+"category": "hold_draw",
+"correct": [
+"b3",
+"c1",
+"c3"
+],
+"values": {
+"b1": "EXACT_LOSS",
+"c1": "EXACT_DRAW",
+"b2": "EXACT_LOSS",
+"b3": "EXACT_DRAW",
+"c3": "EXACT_DRAW",
+"d3": "EXACT_LOSS"
+},
+"distances": {
+"b1": 30,
+"c1": null,
+"b2": 36,
+"b3": null,
+"c3": null,
+"d3": 32
+}
+},
+{
+"position": "...XOX...OXOOX..X................................ O c3",
+"ply": 9,
+"category": "hold_draw",
+"correct": [
+"b4",
+"d3",
+"d4"
+],
+"values": {
+"b2": "EXACT_LOSS",
+"b3": "EXACT_LOSS",
+"d3": "EXACT_DRAW",
+"b4": "EXACT_DRAW",
+"c4": "EXACT_LOSS",
+"d4": "EXACT_DRAW"
+},
+"distances": {
+"b2": 24,
+"b3": 26,
+"d3": null,
+"b4": null,
+"c4": 24,
+"d4": null
+}
+},
+{
+"position": "...........OX....O.X....XXO......OX.............. O d4",
+"ply": 9,
+"category": "win",
+"correct": [
+"c4",
+"c5",
+"e3"
+],
+"values": {
+"c3": "EXACT_LOSS",
+"e3": "EXACT_WIN",
+"c4": "EXACT_WIN",
+"c5": "EXACT_WIN",
+"d5": "EXACT_DRAW",
+"e5": "EXACT_LOSS"
+},
+"distances": {
+"c3": 30,
+"e3": 19,
+"c4": 15,
+"c5": 25,
+"d5": null,
+"e5": 30
+}
+},
+{
+"position": ".....XO...OXX....OXO...X......................... O c4",
+"ply": 9,
+"category": "win",
+"correct": [
+"c5",
+"d4",
+"d5"
+],
+"values": {
+"b3": "EXACT_LOSS",
+"c3": "EXACT_LOSS",
+"b4": "EXACT_LOSS",
+"d4": "EXACT_WIN",
+"b5": "EXACT_LOSS",
+"c5": "EXACT_WIN",
+"d5": "EXACT_WIN"
+},
+"distances": {
+"b3": 36,
+"c3": 18,
+"b4": 20,
+"d4": 33,
+"b5": 26,
+"c5": 33,
+"d5": 15
+}
+},
+{
+"position": "........................XO......XO......X.......O X g7",
+"ply": 6,
+"category": "win",
+"correct": [
+"g6"
+],
+"values": {
+"g6": "EXACT_WIN",
+"f7": "EXACT_LOSS"
+},
+"distances": {
+"g6": 21,
+"f7": 14
+}
+},
+{
+"position": ".........................OX....XOO....OX.....X... X e5",
+"ply": 8,
+"category": "win",
+"correct": [
+"d4"
+],
+"values": {
+"d4": "EXACT_WIN",
+"f6": "EXACT_LOSS"
+},
+"distances": {
+"d4": 33,
+"f6": 14
+}
+},
+{
+"position": "..................O.....XOX....XOO....OX.....X... X e3",
+"ply": 10,
+"category": "win",
+"correct": [
+"e2"
+],
+"values": {
+"d2": "EXACT_LOSS",
+"e2": "EXACT_WIN",
+"f2": "EXACT_LOSS",
+"d3": "EXACT_LOSS",
+"f3": "EXACT_LOSS"
+},
+"distances": {
+"d2": 2,
+"e2": 31,
+"f2": 2,
+"d3": 2,
+"f3": 2
+}
+},
+{
+"position": "............X......OO...OXX...................... X d4",
+"ply": 6,
+"category": "win",
+"correct": [
+"d3",
+"e3",
+"e5"
+],
+"values": {
+"c3": "EXACT_LOSS",
+"d3": "EXACT_WIN",
+"e3": "EXACT_WIN",
+"c4": "EXACT_LOSS",
+"c5": "EXACT_DRAW",
+"d5": "EXACT_DRAW",
+"e5": "EXACT_WIN"
+},
+"distances": {
+"c3": 22,
+"d3": 29,
+"e3": 27,
+"c4": 22,
+"c5": null,
+"d5": null,
+"e5": 31
+}
+},
+{
+"position": "........................XX....OOO...XX.X...O..... O e6",
+"ply": 9,
+"category": "win",
+"correct": [
+"d6",
+"f5"
+],
+"values": {
+"f5": "EXACT_WIN",
+"d6": "EXACT_WIN",
+"f6": "EXACT_LOSS",
+"d7": "EXACT_LOSS",
+"e7": "EXACT_LOSS",
+"f7": "EXACT_DRAW"
+},
+"distances": {
+"f5": 1,
+"d6": 25,
+"f6": 14,
+"d7": 2,
+"e7": 2,
+"f7": null
+}
+},
+{
+"position": ".XO......OX.....X.X.....O.O...................... X f4",
+"ply": 8,
+"category": "win",
+"correct": [
+"e4",
+"f3"
+],
+"values": {
+"f3": "EXACT_WIN",
+"g3": "EXACT_LOSS",
+"e4": "EXACT_WIN",
+"g4": "EXACT_DRAW",
+"e5": "EXACT_LOSS",
+"f5": "EXACT_LOSS",
+"g5": "EXACT_LOSS"
+},
+"distances": {
+"f3": 25,
+"g3": 14,
+"e4": 25,
+"g4": null,
+"e5": 4,
+"f5": 12,
+"g5": 10
+}
+},
+{
+"position": "..........X.....O.......X......O.OX....X......... O d2",
+"ply": 7,
+"category": "win",
+"correct": [
+"d3"
+],
+"values": {
+"c1": "EXACT_LOSS",
+"d1": "EXACT_DRAW",
+"e1": "EXACT_LOSS",
+"c2": "EXACT_LOSS",
+"e2": "EXACT_LOSS",
+"d3": "EXACT_WIN",
+"e3": "EXACT_LOSS"
+},
+"distances": {
+"c1": 12,
+"d1": null,
+"e1": 14,
+"c2": 30,
+"e2": 14,
+"d3": 37,
+"e3": 32
+}
+},
+{
+"position": "XO.......X.......O.....OX......X................. O d5",
+"ply": 7,
+"category": "hold_draw",
+"correct": [
+"c6"
+],
+"values": {
+"e4": "EXACT_LOSS",
+"c5": "EXACT_LOSS",
+"e5": "EXACT_LOSS",
+"c6": "EXACT_DRAW",
+"d6": "EXACT_LOSS",
+"e6": "EXACT_LOSS"
+},
+"distances": {
+"e4": 36,
+"c5": 28,
+"e5": 30,
+"c6": null,
+"d6": 32,
+"e6": 32
+}
+},
+{
+"position": "XO.......X.......O.....OX......X.....O.......X... O d7",
+"ply": 9,
+"category": "hold_draw",
+"correct": [
+"d6"
+],
+"values": {
+"d6": "EXACT_DRAW",
+"e6": "EXACT_LOSS",
+"c7": "EXACT_LOSS",
+"e7": "EXACT_LOSS"
+},
+"distances": {
+"d6": null,
+"e6": 2,
+"c7": 2,
+"e7": 2
+}
+},
+{
+"position": "XO.......X.......O.....OX......X.....OO......X... X d6",
+"ply": 10,
+"category": "hold_draw",
+"correct": [
+"e5"
+],
+"values": {
+"c5": "EXACT_LOSS",
+"e5": "EXACT_DRAW",
+"e6": "EXACT_LOSS",
+"c7": "EXACT_LOSS",
+"e7": "EXACT_LOSS"
+},
+"distances": {
+"c5": 14,
+"e5": null,
+"e6": 28,
+"c7": 12,
+"e7": 26
+}
+},
+{
+"position": ".......................O.......X.....XO...XO..... X c4",
+"ply": 6,
+"category": "win",
+"correct": [
+"d3"
+],
+"values": {
+"b3": "EXACT_LOSS",
+"c3": "EXACT_LOSS",
+"d3": "EXACT_WIN",
+"b4": "EXACT_DRAW",
+"d4": "EXACT_DRAW",
+"b5": "EXACT_DRAW",
+"c5": "EXACT_DRAW"
+},
+"distances": {
+"b3": 26,
+"c3": 36,
+"d3": 35,
+"b4": null,
+"d4": null,
+"b5": null,
+"c5": null
+}
+},
+{
+"position": "......................OX.X....OO......X.......... X b4",
+"ply": 6,
+"category": "win",
+"correct": [
+"a3",
+"b3",
+"b5"
+],
+"values": {
+"a3": "EXACT_WIN",
+"b3": "EXACT_WIN",
+"c3": "EXACT_DRAW",
+"a4": "EXACT_LOSS",
+"a5": "EXACT_LOSS",
+"b5": "EXACT_WIN"
+},
+"distances": {
+"a3": 29,
+"b3": 27,
+"c3": null,
+"a4": 8,
+"a5": 28,
+"b5": 25
+}
+},
+{
+"position": "........................X.....OOOX....XXO........ X c5",
+"ply": 8,
+"category": "hold_draw",
+"correct": [
+"b5"
+],
+"values": {
+"b4": "EXACT_LOSS",
+"c4": "EXACT_LOSS",
+"b5": "EXACT_DRAW",
+"b6": "EXACT_LOSS",
+"c6": "EXACT_LOSS"
+},
+"distances": {
+"b4": 2,
+"c4": 2,
+"b5": null,
+"b6": 2,
+"c6": 2
+}
+},
+{
+"position": ".XO......X......OO......X........................ X c3",
+"ply": 6,
+"category": "win",
+"correct": [
+"b3"
+],
+"values": {
+"b2": "EXACT_LOSS",
+"d2": "EXACT_LOSS",
+"b3": "EXACT_WIN",
+"b4": "EXACT_DRAW",
+"c4": "EXACT_LOSS"
+},
+"distances": {
+"b2": 20,
+"d2": 24,
+"b3": 37,
+"b4": null,
+"c4": 26
+}
+},
+{
+"position": ".XO......X.....XOO.....OX........................ X c4",
+"ply": 8,
+"category": "win",
+"correct": [
+"c5"
+],
+"values": {
+"b4": "EXACT_LOSS",
+"b5": "EXACT_LOSS",
+"c5": "EXACT_WIN",
+"d5": "EXACT_LOSS"
+},
+"distances": {
+"b4": 24,
+"b5": 32,
+"c5": 35,
+"d5": 34
+}
+},
+{
+"position": ".XO......X.....XOO.....OX.....X.......O.......... X d6",
+"ply": 10,
+"category": "win",
+"correct": [
+"d5",
+"e5"
+],
+"values": {
+"d5": "EXACT_WIN",
+"e5": "EXACT_WIN",
+"c6": "EXACT_LOSS",
+"e6": "EXACT_LOSS",
+"c7": "EXACT_LOSS",
+"d7": "EXACT_LOSS",
+"e7": "EXACT_LOSS"
+},
+"distances": {
+"d5": 33,
+"e5": 33,
+"c6": 22,
+"e6": 26,
+"c7": 26,
+"d7": 18,
+"e7": 22
+}
+},
+{
+"position": "..X....XO......OX.....XOX.....O.................. O a2",
+"ply": 9,
+"category": "win",
+"correct": [
+"a3"
+],
+"values": {
+"a1": "EXACT_LOSS",
+"b1": "EXACT_DRAW",
+"a3": "EXACT_WIN"
+},
+"distances": {
+"a1": 20,
+"b1": null,
+"a3": 13
+}
+}
+]

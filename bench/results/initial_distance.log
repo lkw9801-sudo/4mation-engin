@@ -1,0 +1,2 @@
+{"win_by_cube": 27, "proved": false, "score": 29971, "nodes": 33155832, "seconds": 12.6, "aborted": false, "fallback_hits": 0}
+{"win_by_cube": 29, "proved": true, "score": 29971, "nodes": 66190482, "seconds": 21.8, "aborted": false, "fallback_hits": 0}

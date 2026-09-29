@@ -1,0 +1,1 @@
+{"moves": "d4", "position": "........................X........................ O d4", "side_to_move": "O", "aborted": false, "score": -29953, "window": [-1, 1], "result": "LOSS", "best": null, "pv": [], "nodes": 190710097, "seconds": 81.8, "tt_mb": 2048, "fallback_hits": 179, "fallback_rule": "draw"}

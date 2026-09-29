@@ -1,0 +1,1 @@
+{"moves": "d4,d5", "position": "........................X......O................. X d5", "side_to_move": "X", "aborted": false, "score": 29953, "window": [-1, 1], "result": "WIN", "best": "c4", "pv": ["c4"], "nodes": 120356575, "seconds": 50.6, "tt_mb": 2048}

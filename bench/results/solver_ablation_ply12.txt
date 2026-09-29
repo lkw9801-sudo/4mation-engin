@@ -1,0 +1,9 @@
+ply 12 {'etc': 1} solved 16/16 nodes 106M time 42.1s WWWWWWWDWWDWWWDW nps 2.5M
+ply 12 {'reply_order': 1} solved 16/16 nodes 50.9M time 18.8s WWWWWWWDWWDWWWDW nps 2.7M
+ply 12 {'etc': 1, 'reply_order': 1} solved 16/16 nodes 44M time 22.5s WWWWWWWDWWDWWWDW nps 2M
+ply 12 {'sym': 0} solved 16/16 nodes 105M time 31.4s WWWWWWWDWWDWWWDW nps 3.3M
+ply 12 {'dead_prune': 0} solved 16/16 nodes 149M time 49.5s WWWWWWWDWWDWWWDW nps 3M
+ply 12 {'threat_order': 0} solved 16/16 nodes 1.42e+03M time 426.5s WWWWWWWDWWDWWWDW nps 3.3M
+ply 12 {'killer': 0, 'history': 0, 'counter': 0} solved 16/16 nodes 96.8M time 29.9s WWWWWWWDWWDWWWDW nps 3.2M
+ply 12 {'pvs': 0} solved 16/16 nodes 124M time 39.2s WWWWWWWDWWDWWWDW nps 3.1M
+ply 12 {'safe_prune': 0} solved 16/16 nodes 103M time 29.0s WWWWWWWDWWDWWWDW nps 3.5M

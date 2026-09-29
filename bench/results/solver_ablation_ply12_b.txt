@@ -1,0 +1,7 @@
+ply 12 {'reply_order': 1} solved 48/48 nodes 82.4M time 29.0s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 2.8M
+ply 12 {'reply_order': 1, 'killer': 0, 'history': 0, 'counter': 0} solved 48/48 nodes 31.8M time 10.4s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 3M
+ply 12 {'reply_order': 1, 'safe_prune': 0} solved 48/48 nodes 108M time 34.0s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 3.2M
+ply 12 {'reply_order': 1, 'sym': 0} solved 48/48 nodes 87.8M time 29.2s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 3M
+ply 12 {'reply_order': 1, 'sym_max_n': 8} solved 48/48 nodes 87.8M time 28.7s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 3.1M
+ply 12 {'reply_order': 1, 'etc': 1} solved 48/48 nodes 61.7M time 27.1s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 2.3M
+ply 12 {} solved 48/48 nodes 141M time 43.6s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 3.2M

@@ -1,0 +1,113 @@
+new:t=0.1 vs greedy #41: lost_start []  (11s)
+new:t=0.1 vs greedy #67: lost_start []  (18s)
+new:t=0.1 vs old:ab8 #1: unresolved []  (103s)
+new:t=0.1 vs old:ab8 #3: lost_start []  (113s)
+new:t=0.1 vs old:ab8 #5: lost_start []  (116s)
+new:t=0.1 vs old:ab8 #7: lost_start []  (116s)
+new:t=0.1 vs old:ab8 #11: lost_start []  (144s)
+new:t=0.1 vs old:ab8 #13: lost_start []  (185s)
+new:t=0.1 vs old:ab8 #17: unresolved []  (247s)
+new:t=0.1 vs old:ab8 #25: blunder [(9, 'e3', 'EXACT_DRAW', 'EXACT_LOSS')]  (379s)
+new:t=0.1 vs old:ab8 #27: blunder [(9, 'e3', 'EXACT_DRAW', 'EXACT_LOSS')]  (538s)
+new:t=0.1 vs old:ab8 #35: lost_start []  (580s)
+new:t=0.1 vs old:ab8 #41: lost_start []  (642s)
+new:t=0.1 vs old:ab8 #47: lost_start []  (659s)
+new:t=0.1 vs old:ab8 #51: lost_start []  (734s)
+new:t=0.1 vs old:ab8 #55: unresolved []  (800s)
+new:t=0.1 vs old:ab8 #63: unresolved_start []  (857s)
+new:t=0.1 vs old:ab8 #65: lost_start []  (864s)
+new:t=0.1 vs old:ab8 #67: lost_start []  (868s)
+new:t=0.1 vs old:ab8 #69: lost_start []  (868s)
+new:t=0.1 vs old:ab8 #70: unresolved []  (981s)
+new:t=0.1 vs old:ab8 #71: blunder [(9, 'e5', 'EXACT_WIN', 'EXACT_DRAW')]  (1034s)
+new:t=0.1 vs old:ab8 #73: lost_start []  (1050s)
+new:t=0.1 vs old:ab8 #75: lost_start []  (1053s)
+new:t=0.1 vs old:ab8 #83: lost_start []  (1127s)
+new:t=0.1 vs old:ab8 #85: lost_start []  (1145s)
+new:t=0.1 vs old:ab8 #89: lost_start []  (1163s)
+new:t=0.1 vs old:ab8 #95: lost_start []  (1195s)
+new:t=0.1 vs old:ab8 #99: unresolved []  (1261s)
+new:t=1 vs old:ab10 #1: unresolved []  (1278s)
+new:t=1 vs old:ab10 #3: lost_start []  (1282s)
+new:t=1 vs old:ab10 #7: lost_start []  (1282s)
+new:t=1 vs old:ab10 #9: unresolved []  (1387s)
+new:t=1 vs old:ab10 #11: lost_start []  (1387s)
+new:t=1 vs old:ab10 #13: lost_start []  (1388s)
+new:t=1 vs old:ab10 #17: unresolved []  (1388s)
+new:t=1 vs old:ab10 #19: lost_start []  (1391s)
+new:t=1 vs old:ab10 #21: lost_start []  (1454s)
+new:t=1 vs old:ab10 #27: unresolved_start []  (1516s)
+new:t=1 vs old:ab10 #31: blunder [(5, 'c5', 'EXACT_DRAW', 'EXACT_LOSS')]  (1588s)
+new:t=1 vs old:ab10 #33: unresolved []  (1684s)
+new:t=1 vs old:ab10 #35: lost_start []  (1755s)
+new:t=0.1 vs old:ab10 #1: unresolved []  (1755s)
+new:t=0.1 vs old:ab10 #3: lost_start []  (1755s)
+new:t=0.1 vs old:ab10 #7: lost_start []  (1755s)
+new:t=0.1 vs old:ab10 #9: unresolved_start []  (1756s)
+new:t=0.1 vs old:ab10 #11: lost_start []  (1756s)
+new:t=0.1 vs old:ab10 #13: lost_start []  (1756s)
+new:t=0.1 vs old:ab10 #17: unresolved []  (1756s)
+new:t=0.1 vs old:ab10 #19: lost_start []  (1756s)
+new:t=0.1 vs old:ab10 #21: lost_start []  (1758s)
+new:t=0.1 vs old:ab10 #29: unresolved_start []  (1907s)
+new:t=0.1 vs old:ab10 #35: lost_start []  (1908s)
+new:t=0.1 vs old:ab10 #37: unresolved []  (1966s)
+new:t=0.1 vs old:ab10 #39: lost_start []  (1976s)
+new:t=0.1 vs old:ab10 #41: lost_start []  (1976s)
+new:t=0.1 vs old:ab10 #45: unresolved []  (1976s)
+new:t=0.1 vs old:ab10 #49: lost_start []  (2115s)
+new:t=0.1 vs old:ab10 #55: unresolved []  (2115s)
+new:t=0.5 vs old:ab10 #0: blunder [(12, 'c5', 'EXACT_WIN', 'EXACT_DRAW')]  (2238s)
+new:t=0.5 vs old:ab10 #1: unresolved []  (2238s)
+new:t=0.5 vs old:ab10 #3: lost_start []  (2238s)
+new:t=0.5 vs old:ab10 #7: lost_start []  (2238s)
+new:t=0.5 vs old:ab10 #9: unresolved []  (2255s)
+new:t=0.5 vs old:ab10 #11: lost_start []  (2255s)
+new:t=0.5 vs old:ab10 #13: lost_start []  (2255s)
+new:t=0.5 vs old:ab10 #17: unresolved []  (2255s)
+new:t=0.5 vs old:ab10 #19: lost_start []  (2255s)
+new:t=0.5 vs old:ab10 #35: lost_start []  (2263s)
+new:t=0.5 vs old:ab10 #41: lost_start []  (2263s)
+new:t=0.5 vs old:ab10 #49: lost_start []  (2263s)
+new:t=0.5 vs old:ab10 #51: lost_start []  (2267s)
+new:t=0.5 vs old:ab10 #55: unresolved []  (2267s)
+new:t=5 vs old:ab10 #1: unresolved []  (2267s)
+new:t=5 vs old:ab10 #3: lost_start []  (2267s)
+new:t=5 vs old:ab10 #7: lost_start []  (2267s)
+new:t=5 vs old:ab10 #9: unresolved_start []  (2267s)
+new:t=5 vs old:ab10 #11: lost_start []  (2267s)
+new:t=5 vs old:ab10 #13: lost_start []  (2267s)
+new:t=5 vs old:ab10 #17: unresolved []  (2269s)
+new:t=5 vs old:ab10 #19: lost_start []  (2269s)
+{
+ "new:t=0.1 vs greedy": {
+  "lost_start": 2
+ },
+ "new:t=0.1 vs old:ab8": {
+  "unresolved": 5,
+  "lost_start": 18,
+  "blunder": 3,
+  "unresolved_start": 1
+ },
+ "new:t=1 vs old:ab10": {
+  "unresolved": 4,
+  "lost_start": 7,
+  "unresolved_start": 1,
+  "blunder": 1
+ },
+ "new:t=0.1 vs old:ab10": {
+  "unresolved": 5,
+  "lost_start": 10,
+  "unresolved_start": 2
+ },
+ "new:t=0.5 vs old:ab10": {
+  "blunder": 1,
+  "unresolved": 4,
+  "lost_start": 9
+ },
+ "new:t=5 vs old:ab10": {
+  "unresolved": 2,
+  "lost_start": 5,
+  "unresolved_start": 1
+ }
+}

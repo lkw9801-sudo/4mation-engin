@@ -1,0 +1,14 @@
+games 20  samples 94  19s
+games 40  samples 166  34s
+games 60  samples 269  59s
+games 80  samples 354  65s
+games 100  samples 438  72s
+games 120  samples 528  92s
+games 140  samples 614  104s
+games 160  samples 720  113s
+games 180  samples 822  129s
+games 200  samples 928  135s
+games 220  samples 1025  153s
+games 240  samples 1130  161s
+games 260  samples 1241  177s
+samples 1241

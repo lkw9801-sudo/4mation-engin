@@ -1,0 +1,3 @@
+{"moves": "c3", "position": "................X................................ O c3", "side_to_move": "O", "aborted": false, "score": -29953, "window": [-1, 1], "result": "LOSS", "best": null, "pv": [], "nodes": 1981593066, "seconds": 766.8, "tt_mb": 2048}
+{"moves": "d3", "position": ".................X............................... O d3", "side_to_move": "O", "aborted": false, "score": -29953, "window": [-1, 1], "result": "LOSS", "best": null, "pv": [], "nodes": 1781967148, "seconds": 705.7, "tt_mb": 2048}
+{"moves": "c2", "position": ".........X....................................... O c2", "side_to_move": "O", "aborted": false, "score": -29953, "window": [-1, 1], "result": "LOSS", "best": null, "pv": [], "nodes": 4142824499, "seconds": 1725.3, "tt_mb": 2048}

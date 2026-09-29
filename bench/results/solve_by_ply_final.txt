@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-claude/2a8f3ce6-3ebd-5b19-8a42-cb51f31e8c0f/scratchpad/solvebench.py", line 9, in <module>
+    for c in S[ply][:int(sys.argv[4]) if len(sys.argv)>4 else 99]:
+             ~^^^^^
+KeyError: '8'
+ply 10 {} solved 48/48 nodes 56.3M time 20.1s WWLWLWDWDWWLDDWWWWWWLWLWWDWWWWWLWWWWLWDWWDWWWWLW nps 2.8M
+ply 12 {} solved 48/48 nodes 31.8M time 11.2s WWLWLWDWDWLLDDWWWWWWLWLWWWWWWWWLWWWWLWDWWDWWWWWL nps 2.8M
+ply 14 {} solved 48/48 nodes 7.5M time 2.6s WWLWLWWWWWLLWDDWWDWWLWLWWWWWWWWLWWWWLWLDWLWWWWLL nps 2.9M
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-claude/2a8f3ce6-3ebd-5b19-8a42-cb51f31e8c0f/scratchpad/solvebench.py", line 9, in <module>
+    for c in S[ply][:int(sys.argv[4]) if len(sys.argv)>4 else 99]:
+             ~^^^^^
+KeyError: '16'
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-claude/2a8f3ce6-3ebd-5b19-8a42-cb51f31e8c0f/scratchpad/solvebench.py", line 9, in <module>
+    for c in S[ply][:int(sys.argv[4]) if len(sys.argv)>4 else 99]:
+             ~^^^^^
+KeyError: '18'
+ply 8 {} solved 16/16 nodes 98.1M time 35.6s WWWWWWWDWWDDWWDW nps 2.8M
+ply 16 {} solved 16/16 nodes 5.3M time 1.8s WWWWWWWWWWDDWWDD nps 2.9M
+ply 18 {} solved 16/16 nodes 1.54M time 0.6s WWWWWWWWWWDDWWDD nps 2.7M

@@ -1,0 +1,2 @@
+ply 10 {'reply_order': 1, 'killer': 0, 'history': 0, 'counter': 0} solved 48/48 nodes 56.3M time 19.5s WWLWLWDWDWWLDDWWWWWWLWLWWDWWWWWLWWWWLWDWWDWWWWLW nps 2.9M
+ply 10 {'reply_order': 1, 'killer': 0, 'history': 0, 'counter': 0, 'etc': 1} solved 48/48 nodes 51.4M time 24.9s WWLWLWDWDWWLDDWWWWWWLWLWWDWWWWWLWWWWLWDWWDWWWWLW nps 2.1M
